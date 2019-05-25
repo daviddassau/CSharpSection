@@ -36,14 +36,14 @@ namespace CSharpSection_2.Classes
             this.owner = owner;
         }
 
-        public float AddBalance(float balanceToBeAdded)
+        public virtual float AddBalance(float balanceToBeAdded)
         {
             Balance = balance + balanceToBeAdded;
             return Balance;
         }
 
         // Method Overloading: Different methods that have the same name but a different signature
-        public float AddBalance(float balanceToBeAdded, bool balanceCanBeNegative)
+        public virtual float AddBalance(float balanceToBeAdded, bool balanceCanBeNegative)
         {
             if (balanceCanBeNegative)
             {
@@ -65,6 +65,21 @@ namespace CSharpSection_2.Classes
         public ChildBankAccount(float balance, string owner, string parent) : base(balance, owner)
         {
             Parent = parent;
+        }
+
+        // Overriding is being able to use a method that exists on the parent and add some functionality to that method, or entirely change it
+        public override float AddBalance(float balanceToBeAdded)
+        {
+            if (balanceToBeAdded >= -10)
+                return base.AddBalance(balanceToBeAdded);
+            return Balance;
+        }
+
+        public override float AddBalance(float balanceToBeAdded, bool balanceCanBeNegative)
+        {
+            if (balanceToBeAdded >= -10)
+                return base.AddBalance(balanceToBeAdded, balanceCanBeNegative);
+            return Balance;
         }
     }
 }
