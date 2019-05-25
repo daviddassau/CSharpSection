@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSharpSection_2.Classes
@@ -55,6 +56,12 @@ namespace CSharpSection_2.Classes
             }
 
             return Balance;
+        }
+
+        public async Task<string> GetData()
+        {
+            Thread.Sleep(2000);
+            return "Completed";
         }
     }
 
