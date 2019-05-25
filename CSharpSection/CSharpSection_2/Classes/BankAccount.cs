@@ -60,9 +60,11 @@ namespace CSharpSection_2.Classes
 
     public class ChildBankAccount : BankAccount
     {
-        public ChildBankAccount(float balance, string owner) : base(balance, owner)
-        {
+        public string Parent { get; set; }
 
+        public ChildBankAccount(float balance, string owner, string parent) : base(balance, owner)
+        {
+            Parent = parent;
         }
     }
 }
