@@ -41,5 +41,21 @@ namespace CSharpSection_2.Classes
             Balance = balance + balanceToBeAdded;
             return Balance;
         }
+
+        // Method Overloading
+          // Different methods that have the same name but a different signature
+        public float AddBalance(float balanceToBeAdded, bool balanceCanBeNegative)
+        {
+            if (balanceCanBeNegative)
+            {
+                balance = balance + balanceToBeAdded;
+            }
+            else
+            {
+                Balance = balance + balanceToBeAdded;
+            }
+
+            return Balance;
+        }
     }
 }
