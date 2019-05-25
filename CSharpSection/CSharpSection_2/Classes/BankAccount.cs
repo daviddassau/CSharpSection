@@ -9,18 +9,37 @@ namespace CSharpSection_2.Classes
     public class BankAccount
     {
         private float balance;
+
+        // When defining a property, you should define it as public // Because it should be available for access from anywhere in the code
+        //public float Balance { get; set; }
+        public float Balance
+        {
+            get
+            {
+                return balance;
+            }
+            private set
+            {
+                if (value >= 0)
+                    balance = value;
+                else
+                    balance = 0;
+            }
+        }
+
         private string owner;
 
         // Constructor
         public BankAccount(float balance, string owner)
         {
-            this.balance = balance;
+            Balance = balance;
             this.owner = owner;
         }
 
         public float AddBalance(float balanceToBeAdded)
         {
-            return balance + balanceToBeAdded;
+            Balance = balance + balanceToBeAdded;
+            return Balance;
         }
     }
 }
