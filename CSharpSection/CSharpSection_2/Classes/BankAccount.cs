@@ -42,8 +42,7 @@ namespace CSharpSection_2.Classes
             return Balance;
         }
 
-        // Method Overloading
-          // Different methods that have the same name but a different signature
+        // Method Overloading: Different methods that have the same name but a different signature
         public float AddBalance(float balanceToBeAdded, bool balanceCanBeNegative)
         {
             if (balanceCanBeNegative)
@@ -56,6 +55,14 @@ namespace CSharpSection_2.Classes
             }
 
             return Balance;
+        }
+    }
+
+    public class ChildBankAccount : BankAccount
+    {
+        public ChildBankAccount(float balance, string owner) : base(balance, owner)
+        {
+
         }
     }
 }
